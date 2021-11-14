@@ -1,38 +1,51 @@
 //password character arrays
-var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var number = ["0", "1", "3", "4", "5", "6", "7", "8", "9"]
-var specialChar = ["`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "{", "]", "}", "|", ";", ":", "'", ",", "<", ".", ">", "/", "?"]
+var specialChar = ["`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "{", "]", "}", "|", ";", ":", "'", ",", "<", ".", ">", "/", "?"];
 
 //functions for randomizing character arrays
 var randomUpperCase = function () {
-    var iUpperCase = Math.floor(Math.random() * (upperCase.length - 1));
-    console.log(upperCase[iUpperCase]);
+    var iUpperCase = Math.floor(Math.random() * upperCase.length);
+    //console.log("your randome upper case character is " + upperCase[iUpperCase]);
     return upperCase[iUpperCase];
 }
 var randomLowerCase = function () {
-    var iLowerCase = Math.floor(Math.random() * (lowerCase.length - 1));
-    console.log(lowerCase[iLowerCase]);
+    var iLowerCase = Math.floor(Math.random() * lowerCase.length);
+    //console.log("your random lower case character is " + lowerCase[iLowerCase]);
     return lowerCase[iLowerCase];
 }
 var randomNumber = function () {
-    var iNumber = Math.floor(Math.random() * (number.length - 1));
-    console.log(number[iNumber]);
+    var iNumber = Math.floor(Math.random() * number.length);
+    //console.log("your random number is " + number[iNumber]);
     return number[iNumber];
 }
 var randomSpecialChar = function () {
-    var iSpecialChar = Math.floor(Math.random() * (specialChar.length - 1));
-    console.log(specialChar[iSpecialChar]);
+    var iSpecialChar = Math.floor(Math.random() * specialChar.length);
+    //console.log("your random special character is " + specialChar[iSpecialChar]);
     return specialChar[iSpecialChar];
 }
+
+//array of 'random character' functions
+var allSelectChar = [randomUpperCase, randomLowerCase, randomNumber, randomSpecialChar];
+
+//function for randomizing which array to access
+var randomAllSelectChar = function () {
+    var iAllSelectChar = Math.floor(Math.random() * allSelectChar.length);
+    console.log("your random character from random array is " + allSelectChar[iAllSelectChar]());
+    return allSelectChar[iAllSelectChar]();
+}
+
 
 //execute randomizing functions
 randomUpperCase();
 randomLowerCase();
 randomNumber();
 randomSpecialChar();
+randomAllSelectChar();
 
-//generate password function
+
+generate password function
 var generatePassword = function () {
 
     //upper case confirm
