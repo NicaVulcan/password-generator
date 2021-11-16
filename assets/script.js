@@ -20,18 +20,30 @@ var passwordParameters = function () {
     var confirmUpperCase = window.confirm("Would you like to include upper case characters in your password?");
     if (confirmUpperCase) {
         selectedCharType = selectedCharType.concat(upperCase);
+        alert("Your password WILL include upper case characters.");
+    } else {
+        alert("Your password WILL NOT include upper case characters.");
     };
     var confirmLowerCase = window.confirm("Would you like to include lower case characters in your password?");
     if (confirmLowerCase) {
         selectedCharType = selectedCharType.concat(lowerCase);
+        alert("Your password WILL include lower case characters.");
+    } else {
+        alert("Your password WILL NOT include lower case characters.");
     };
     var confirmNumber = window.confirm("Would you like to include numbers in your password?");
     if (confirmNumber) {
         selectedCharType = selectedCharType.concat(number);
+        alert("Your password WILL include numbers.");
+    } else {
+        alert("Your password WILL NOT include numbers.");
     };
     var confirmSpecialChar = window.confirm("Would you like to include special characters in your password?");
     if (confirmSpecialChar) {
         selectedCharType = selectedCharType.concat(specialChar);
+        alert("Your password WILL include special characters");
+    } else {
+        alert("Your password WILL NOT include special characters");
     };
 
     //ensure at least one character type is selected
