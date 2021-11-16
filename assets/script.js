@@ -43,134 +43,29 @@ var passwordParameters = function () {
     return [confirmPassLength, confirmUpperCase, confirmLowerCase, confirmNumber, confirmSpecialChar];
 };
 
-//randomize selection from selectedChartype
-var randomizeChar = function () {
-    var randomChar = Math.floor(Math.random() * selectedCharType.length);
-    return selectedCharType[randomChar];
-};
-
 //create the password
 var writePassword = function () {
     //create an array out of passwordParameters function
     var parameters = passwordParameters();
 
-    //iterate randomizeChar function user selected amount of times
+    //empty variable for generated password
+    var generatedPW = "";
+
+    //iterate random character from selected character arrays
     for (var i = 0; i < parameters[0]; i++) {
-        randomizeChar();
-        console.log(randomizeChar());
+        generatedPW += selectedCharType[Math.floor(Math.random() * selectedCharType.length)];
     }
+    console.log("Your password is " + parameters[0] + " characters long. Contains upper case characters: " + parameters[2] + ". Contains lower case characters: " + parameters[2] + ". Contains numbers: " + parameters[3] + ". Contains special characters: " + parameters[4] + ".");
+    console.log("Your password is " + generatedPW);
+    return generatedPW;
 };
 
-writePassword();
-
-
-//functions for randomizing character arrays
-// var randomUpperCase = function () {
-//     var iUpperCase = Math.floor(Math.random() * upperCase.length);
-//     console.log("your random upper case character is " + upperCase[iUpperCase]);
-//     return upperCase[iUpperCase];
-// }
-// var randomLowerCase = function () {
-//     var iLowerCase = Math.floor(Math.random() * lowerCase.length);
-//     console.log("your random lower case character is " + lowerCase[iLowerCase]);
-//     return lowerCase[iLowerCase];
-// }
-// var randomNumber = function () {
-//     var iNumber = Math.floor(Math.random() * number.length);
-//     console.log("your random number is " + number[iNumber]);
-//     return number[iNumber];
-// }
-// var randomSpecialChar = function () {
-//     var iSpecialChar = Math.floor(Math.random() * specialChar.length);
-//     console.log("your random special character is " + specialChar[iSpecialChar]);
-//     return specialChar[iSpecialChar];
-// }
-
-//array of 'random character' functions. Functions added to array depending on parameters chosen
-//var allSelectChar = [randomUpperCase, randomLowerCase, randomNumber, randomSpecialChar];
-
-//function for randomizing which array to access depending on parameters chosen
-// var randomAllSelectChar = function () {
-//     var iAllSelectChar = Math.floor(Math.random() * allSelectChar.length);
-//     console.log("your random character from random array is " + allSelectChar[iAllSelectChar]());
-//     return allSelectChar[iAllSelectChar]();
-// };
-
-// // //functions for password parameters
-// //confirm upper case prompt
-// var promptUpperCase = function () {
-//     var confirmUpperCase = window.confirm("Would you like to include upper case letters in your password? Press 'OK' for yes, or 'CANCEL' for no.");
-//     if (confirmUpperCase) {
-//         console.log("Password will contain upper case characters");
-//     } else {
-
-//         console.log("Password will not contain upper case characters");
-//     }
-// };
-// //confirm lower case prompt
-// var promptLowerCase = function () {
-//     var confirmLowerCase = window.confirm("Would you like to include lower case letters in your password? Press 'OK' for yes, or 'CANCEL' for no.");
-//     if (confirmLowerCase) {
-//         console.log("Password will contain lower case characters");
-//     } else {
-//         console.log("Password will not contain lower case characters");
-//     }
-// };
-// //confirm number prompt
-// var promptNumber = function () {
-//     var confirmNumber = window.confirm("Would you like to include numbers in your password? Press 'OK' for yes, or 'CANCEL' for no.");
-//     if (confirmNumber) {
-//         console.log("Password will contain numbers");
-//     } else {
-//         console.log("Password will not contain numbers");
-//     }
-// };
-// //confirm special character prompt
-// var promptSpecialChar = function () {
-//     var confirmSpecialChar = window.confirm("Would you like to include special characters in your password? Press 'OK' for yes, or 'CANCEL' for no.");
-//     if (confirmSpecialChar) {
-//         console.log("Password will contain special characters");
-//     } else {
-//         console.log("Password will not contain special characters");
-//     }
-// };
-// //determine password length
-// var promptCharQuant = function () {
-//     var selectCharQuant = "";
-//     while (isNaN(selectCharQuant) || selectCharQuant < 8 || selectCharQuant > 128) {
-//         selectCharQuant = window.prompt("How long would you like your password to be? Please enter a number between 8 and 128.")
-//         selectCharQuant = parseInt(selectCharQuant);
-//     }
-//     console.log("your password will be " + selectCharQuant + " characters long.");
-//     return selectCharQuant;
-// };
-
-// //execute randomizing functions
-// randomUpperCase();
-// randomLowerCase();
-// randomNumber();
-// randomSpecialChar();
-// randomAllSelectChar();
-
-// promptUpperCase();
-// promptLowerCase();
-// promptNumber();
-// promptSpecialChar();
-// promptCharQuant();
-
-// //generate password function
-// var generatePassword = function () {
-
-//}
-
 // // Write password to the #password input
-// function writePassword() {
-//     var password = generatePassword();
-//     var passwordText = document.querySelector("#password");
-
-//     passwordText.value = password;
-
-// }
+function typePassword() {
+    var password = writePassword();
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+}
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", typePassword);
