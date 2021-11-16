@@ -40,7 +40,7 @@ var passwordParameters = function () {
         break;
     }
 
-    console.log("upper case? " + confirmUpperCase + ". lower case? " + confirmLowerCase + ". number? " + confirmNumber + ". special character? " + confirmSpecialChar + ". password length? " + confirmPassLength);
+    return [confirmPassLength, confirmUpperCase, confirmLowerCase, confirmNumber, confirmSpecialChar];
 };
 
 //randomize selection from selectedChartype
@@ -49,13 +49,19 @@ var randomizeChar = function () {
     return selectedCharType[randomChar];
 };
 
-
-var parameters = passwordParameters();
-
+//create the password
 var writePassword = function () {
-    passwordParameters();
-    randomize(lowerCase);
-}
+    //create an array out of passwordParameters function
+    var parameters = passwordParameters();
+
+    //iterate randomizeChar function user selected amount of times
+    for (var i = 0; i < parameters[0]; i++) {
+        randomizeChar();
+        console.log(randomizeChar());
+    }
+};
+
+writePassword();
 
 
 //functions for randomizing character arrays
