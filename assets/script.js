@@ -55,6 +55,10 @@ var writePassword = function () {
     for (var i = 0; i < parameters[0]; i++) {
         generatedPW += selectedCharType[Math.floor(Math.random() * selectedCharType.length)];
     }
+
+    //reset the array so that each click of 'generate password' button yields password with selected character types
+    selectedCharType = [];
+
     console.log("Your password is " + parameters[0] + " characters long. Contains upper case characters: " + parameters[2] + ". Contains lower case characters: " + parameters[2] + ". Contains numbers: " + parameters[3] + ". Contains special characters: " + parameters[4] + ".");
     console.log("Your password is " + generatedPW);
     return generatedPW;
